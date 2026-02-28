@@ -1,0 +1,68 @@
+[gd_scene format=3 uid="uid://rvtrrs7ccuto"]
+
+[ext_resource type="Script" uid="uid://c66nwk7silo3l" path="res://Scripts/col_2_v_box_container.gd" id="1_pfwx5"]
+[ext_resource type="PackedScene" uid="uid://o7nes6dcej83" path="res://Scenes/base_job_h_box_container_component.tscn" id="1_vk5i7"]
+[ext_resource type="Resource" uid="uid://ox7rhenr6wdv" path="res://Resources/gamedata.tres" id="2_x7cha"]
+
+[node name="Col2_VBoxContainer" type="VBoxContainer" unique_id=607190770]
+script = ExtResource("1_pfwx5")
+gamedata = ExtResource("2_x7cha")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=602915642]
+layout_mode = 2
+bbcode_enabled = true
+text = "[b]Jobs[/b]"
+fit_content = true
+
+[node name="Label" type="Label" parent="." unique_id=502942476]
+layout_mode = 2
+text = "Husbandry"
+
+[node name="husbandryHBoxContainerComponent" parent="." unique_id=480447583 instance=ExtResource("1_vk5i7")]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="." unique_id=97361257]
+layout_mode = 2
+text = "Child Rearing"
+
+[node name="childrearingHBoxContainerComponent" parent="." unique_id=1057903226 instance=ExtResource("1_vk5i7")]
+layout_mode = 2
+
+[node name="hunting" type="Label" parent="." unique_id=917069437]
+layout_mode = 2
+text = "Hunting"
+
+[node name="huntingHBoxContainerComponent" parent="." unique_id=1937738059 instance=ExtResource("1_vk5i7")]
+layout_mode = 2
+
+[node name="Label4" type="Label" parent="." unique_id=230779289]
+layout_mode = 2
+text = "Pillaging"
+
+[node name="pillagingHBoxContainerComponent" parent="." unique_id=183650669 instance=ExtResource("1_vk5i7")]
+layout_mode = 2
+
+[node name="blank_space" type="Label" parent="." unique_id=2064399575]
+layout_mode = 2
+
+[connection signal="pressed" from="husbandryHBoxContainerComponent/neg_10" to="." method="_husbandry_on_neg_10_pressed"]
+[connection signal="pressed" from="husbandryHBoxContainerComponent/neg_1" to="." method="_husbandry_on_neg_1_pressed"]
+[connection signal="pressed" from="husbandryHBoxContainerComponent/pos_1" to="." method="_husbandry_on_pos_1_pressed"]
+[connection signal="pressed" from="husbandryHBoxContainerComponent/pos_10" to="." method="_husbandry_on_pos_10_pressed"]
+[connection signal="pressed" from="childrearingHBoxContainerComponent/neg_10" to="." method="_childrearing_on_neg_10_pressed"]
+[connection signal="pressed" from="childrearingHBoxContainerComponent/neg_1" to="." method="_childrearing_on_neg_1_pressed"]
+[connection signal="pressed" from="childrearingHBoxContainerComponent/pos_1" to="." method="_childrearing_on_pos_1_pressed"]
+[connection signal="pressed" from="childrearingHBoxContainerComponent/pos_10" to="." method="_childrearing_on_pos_10_pressed"]
+[connection signal="pressed" from="huntingHBoxContainerComponent/neg_10" to="." method="_hunting_on_neg_10_pressed"]
+[connection signal="pressed" from="huntingHBoxContainerComponent/neg_1" to="." method="_hunting_on_neg_1_pressed"]
+[connection signal="pressed" from="huntingHBoxContainerComponent/pos_1" to="." method="_hunting_on_pos_1_pressed"]
+[connection signal="pressed" from="huntingHBoxContainerComponent/pos_10" to="." method="_hunting_on_pos_10_pressed"]
+[connection signal="pressed" from="pillagingHBoxContainerComponent/neg_10" to="." method="_pillaging_on_neg_10_pressed"]
+[connection signal="pressed" from="pillagingHBoxContainerComponent/neg_1" to="." method="_pillaging_on_neg_1_pressed"]
+[connection signal="pressed" from="pillagingHBoxContainerComponent/pos_1" to="." method="_pillaging_on_pos_1_pressed"]
+[connection signal="pressed" from="pillagingHBoxContainerComponent/pos_10" to="." method="_pillaging_on_pos_10_pressed"]
+
+[editable path="husbandryHBoxContainerComponent"]
+[editable path="childrearingHBoxContainerComponent"]
+[editable path="huntingHBoxContainerComponent"]
+[editable path="pillagingHBoxContainerComponent"]

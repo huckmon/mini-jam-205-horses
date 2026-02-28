@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://o7nes6dcej83"]
+
+[node name="baseJobHBoxContainerComponent" type="HBoxContainer" unique_id=480447583]
+offset_right = 149.0
+offset_bottom = 31.0
+theme_override_constants/separation = 1
+
+[node name="neg_10" type="Button" parent="." unique_id=305549661]
+layout_mode = 2
+text = "-10"
+
+[node name="neg_1" type="Button" parent="." unique_id=1896384469]
+layout_mode = 2
+text = "-1"
+
+[node name="value" type="Label" parent="." unique_id=742728373]
+layout_mode = 2
+text = "No."
+
+[node name="pos_1" type="Button" parent="." unique_id=1157118691]
+layout_mode = 2
+text = "+1"
+
+[node name="pos_10" type="Button" parent="." unique_id=1871634619]
+layout_mode = 2
+text = "+10"
+
+[connection signal="pressed" from="neg_10" to="." method="_on_neg_10_pressed"]
+[connection signal="pressed" from="neg_1" to="." method="_on_neg_1_pressed"]
+[connection signal="pressed" from="pos_1" to="." method="_on_pos_1_pressed"]
+[connection signal="pressed" from="pos_10" to="." method="_on_pos_10_pressed"]

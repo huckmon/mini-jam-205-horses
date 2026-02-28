@@ -1,0 +1,110 @@
+[gd_scene format=3 uid="uid://bwm44ihoc2lsf"]
+
+[ext_resource type="Script" uid="uid://b37aqw1juptox" path="res://Scenes/col_1_v_box_container.gd" id="1_e61ng"]
+[ext_resource type="Resource" uid="uid://ox7rhenr6wdv" path="res://Resources/gamedata.tres" id="2_oi8vr"]
+
+[node name="Col1_VBoxContainer" type="VBoxContainer" unique_id=234414940]
+offset_right = 120.0
+offset_bottom = 269.0
+script = ExtResource("1_e61ng")
+gamedata = ExtResource("2_oi8vr")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1319107301]
+layout_mode = 2
+bbcode_enabled = true
+text = "[b]Resources[/b]"
+fit_content = true
+
+[node name="nomadsHBoxContainer" type="HBoxContainer" parent="." unique_id=1304170862]
+layout_mode = 2
+
+[node name="nomads" type="Label" parent="nomadsHBoxContainer" unique_id=1622082435]
+layout_mode = 2
+text = "Nomads:"
+
+[node name="value" type="Label" parent="nomadsHBoxContainer" unique_id=1084255171]
+layout_mode = 2
+text = "temp"
+
+[node name="horsesHBoxContainer" type="HBoxContainer" parent="." unique_id=1305146461]
+layout_mode = 2
+
+[node name="horses" type="Label" parent="horsesHBoxContainer" unique_id=1809663218]
+layout_mode = 2
+text = "Horses:"
+
+[node name="value" type="Label" parent="horsesHBoxContainer" unique_id=1245415451]
+layout_mode = 2
+text = "temp"
+
+[node name="foodHBoxContainer" type="HBoxContainer" parent="." unique_id=1871728655]
+layout_mode = 2
+
+[node name="food" type="Label" parent="foodHBoxContainer" unique_id=2117787710]
+layout_mode = 2
+text = "Food:"
+
+[node name="value" type="Label" parent="foodHBoxContainer" unique_id=1761915362]
+layout_mode = 2
+text = "temp"
+
+[node name="wealthHBoxContainer" type="HBoxContainer" parent="." unique_id=580409222]
+layout_mode = 2
+
+[node name="wealth" type="Label" parent="wealthHBoxContainer" unique_id=1928833624]
+layout_mode = 2
+text = "Wealth:"
+
+[node name="value" type="Label" parent="wealthHBoxContainer" unique_id=1427183082]
+layout_mode = 2
+text = "temp"
+
+[node name="blank_space" type="Label" parent="." unique_id=1657976694]
+layout_mode = 2
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="." unique_id=1012175954]
+layout_mode = 2
+bbcode_enabled = true
+text = "[b]Local Resources[/b]"
+fit_content = true
+
+[node name="Label5" type="Label" parent="." unique_id=1541310166]
+layout_mode = 2
+text = "Available food: xtempx"
+
+[node name="Label6" type="Label" parent="." unique_id=323457096]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="Label6" unique_id=1461598374]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -4.0
+offset_right = -120.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Migrate"
+
+[node name="migdistanceHBoxContainer" type="HBoxContainer" parent="." unique_id=1887636300]
+layout_mode = 2
+
+[node name="Label7" type="Label" parent="migdistanceHBoxContainer" unique_id=1765211559]
+layout_mode = 2
+text = "Distance required:"
+
+[node name="migdistrequired_value" type="Label" parent="migdistanceHBoxContainer" unique_id=1110086268]
+layout_mode = 2
+text = "temp"
+
+[node name="migtimeleftHBoxContainer" type="HBoxContainer" parent="." unique_id=1509823083]
+layout_mode = 2
+
+[node name="Label8" type="Label" parent="migtimeleftHBoxContainer" unique_id=1343436574]
+layout_mode = 2
+text = "Time left:"
+
+[node name="migtimeleft_value" type="Label" parent="migtimeleftHBoxContainer" unique_id=2132646090]
+layout_mode = 2
+text = "temp"
