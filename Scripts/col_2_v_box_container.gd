@@ -18,9 +18,13 @@ func update_values():
 	pillaging_value.text = str(gamedata.pillaging_workers)
 
 func _on_global_game_tick_timeout() -> void:
-	gamedata.nomad_count += (float(gamedata.childrearing_workers) * (0.1 * gamedata.hunting_worker_rate))
-	gamedata.horse_count += (float(gamedata.husbandry_workers) * (0.1 * gamedata.hunting_worker_rate))
-	gamedata.food_count += (float(gamedata.hunting_workers) * (0.5 * gamedata.hunting_worker_rate))
+	gamedata.nomad_count += gamedata.not_starving * (float(gamedata.childrearing_workers) * (gamedata.childrearing_work_base * gamedata.hunting_worker_rate))
+	gamedata.horse_count += gamedata.not_starving * (float(gamedata.husbandry_workers) * (gamedata.husbandry_work_base * gamedata.hunting_worker_rate))
+	if gamedata.current_local_food_available > 0:
+		gamedata.food_count += float(gamedata.hunting_workers) * (gamedata.hunting_work_base * gamedata.hunting_worker_rate)
+		gamedata.current_local_food_available -= (float(gamedata.hunting_workers) * (gamedata.hunting_work_base))
+	if gamedata.food_count < 0:
+		gamedata.food_count = 0
 
 #region Husbandry button signals
 func _husbandry_on_neg_10_pressed() -> void:

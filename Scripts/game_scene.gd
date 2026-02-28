@@ -14,6 +14,5 @@ func _ready() -> void:
 	global_game_tick.wait_time = gamedata.tick_rate
 	global_game_tick.start((1/gamedata.tick_rate))
 
-
 func _on_global_game_tick_timeout() -> void:
 	global_game_tick.start((1/gamedata.tick_rate))

@@ -24,6 +24,7 @@ layout_mode = 2
 layout_mode = 2
 
 [connection signal="timeout" from="globalGameTick" to="." method="_on_global_game_tick_timeout"]
+[connection signal="timeout" from="globalGameTick" to="HBoxContainer/Col1_VBoxContainer" method="_on_global_game_tick_timeout"]
 [connection signal="timeout" from="globalGameTick" to="HBoxContainer/Col2_VBoxContainer" method="_on_global_game_tick_timeout"]
 
 [editable path="HBoxContainer/Col1_VBoxContainer"]

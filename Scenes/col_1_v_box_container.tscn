@@ -68,43 +68,62 @@ bbcode_enabled = true
 text = "[b]Local Resources[/b]"
 fit_content = true
 
-[node name="Label5" type="Label" parent="." unique_id=1541310166]
-layout_mode = 2
-text = "Available food: xtempx"
-
-[node name="Label6" type="Label" parent="." unique_id=323457096]
+[node name="availablefoodHBoxContainer" type="HBoxContainer" parent="." unique_id=978700916]
 layout_mode = 2
 
-[node name="Button" type="Button" parent="Label6" unique_id=1461598374]
+[node name="Label5" type="Label" parent="availablefoodHBoxContainer" unique_id=1541310166]
+layout_mode = 2
+text = "Available food:"
+
+[node name="value" type="Label" parent="availablefoodHBoxContainer" unique_id=1369383541]
+layout_mode = 2
+text = "temp"
+
+[node name="migrateLabel" type="Label" parent="." unique_id=323457096]
+layout_mode = 2
+
+[node name="migrateButton" type="Button" parent="migrateLabel" unique_id=1461598374]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -4.0
-offset_right = -120.0
-offset_bottom = 4.0
-grow_horizontal = 2
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -15.5
+offset_right = 68.0
+offset_bottom = 15.5
 grow_vertical = 2
 text = "Migrate"
 
-[node name="migdistanceHBoxContainer" type="HBoxContainer" parent="." unique_id=1887636300]
+[node name="distancetotravelHBoxContainer" type="HBoxContainer" parent="." unique_id=1887636300]
 layout_mode = 2
 
-[node name="Label7" type="Label" parent="migdistanceHBoxContainer" unique_id=1765211559]
+[node name="Label7" type="Label" parent="distancetotravelHBoxContainer" unique_id=1765211559]
 layout_mode = 2
 text = "Distance required:"
 
-[node name="migdistrequired_value" type="Label" parent="migdistanceHBoxContainer" unique_id=1110086268]
+[node name="value" type="Label" parent="distancetotravelHBoxContainer" unique_id=1110086268]
 layout_mode = 2
 text = "temp"
 
-[node name="migtimeleftHBoxContainer" type="HBoxContainer" parent="." unique_id=1509823083]
+[node name="distanceremainingHBoxContainer" type="HBoxContainer" parent="." unique_id=1757114885]
 layout_mode = 2
 
-[node name="Label8" type="Label" parent="migtimeleftHBoxContainer" unique_id=1343436574]
+[node name="Label" type="Label" parent="distanceremainingHBoxContainer" unique_id=753801457]
+layout_mode = 2
+text = "Distance remaining:"
+
+[node name="value" type="Label" parent="distanceremainingHBoxContainer" unique_id=686780181]
+layout_mode = 2
+text = "temp"
+
+[node name="timeleftHBoxContainer" type="HBoxContainer" parent="." unique_id=1509823083]
+layout_mode = 2
+
+[node name="Label8" type="Label" parent="timeleftHBoxContainer" unique_id=1343436574]
 layout_mode = 2
 text = "Time left:"
 
-[node name="migtimeleft_value" type="Label" parent="migtimeleftHBoxContainer" unique_id=2132646090]
+[node name="value" type="Label" parent="timeleftHBoxContainer" unique_id=2132646090]
 layout_mode = 2
 text = "temp"
+
+[connection signal="pressed" from="migrateLabel/migrateButton" to="." method="_on_migrate_button_pressed"]
