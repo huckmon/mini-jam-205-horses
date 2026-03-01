@@ -4,4 +4,7 @@
 
 [resource]
 script = ExtResource("1_ndn70")
+nomad_count = 100.0
+horse_count = 100.0
+food_count = 1000000000000.0
 metadata/_custom_type_script = "uid://cuwe7h2mhct4g"

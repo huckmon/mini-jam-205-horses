@@ -1,5 +1,7 @@
 extends VBoxContainer
 
+signal first_time_10_horses
+
 @export var gamedata : GameData
 
 # value ui elements of resources
@@ -28,7 +30,6 @@ func _physics_process(_delta: float) -> void:
 	if not gamedata.travelling:
 		return
 	
-	
 func update_values() -> void:
 	nomad_count.text = str(int(floorf(gamedata.nomad_count)))
 	horse_count.text = str(int(floorf(gamedata.horse_count)))
@@ -52,6 +53,10 @@ func _on_global_game_tick_timeout() -> void:
 	elif gamedata.not_starving == 0:
 		gamedata.not_starving = 1
 		$starving.visible = false
+	if not gamedata.first_time_10_horses_aquired:
+		if floorf(gamedata.horse_count) > 9:
+			gamedata.first_time_10_horses_aquired = true
+			first_time_10_horses.emit()
 
 func starvation():
 	# NOTE: Add starving notification

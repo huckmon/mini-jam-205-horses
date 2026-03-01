@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://rvtrrs7ccuto"]
 
 [ext_resource type="Script" uid="uid://c66nwk7silo3l" path="res://Scripts/col_2_v_box_container.gd" id="1_pfwx5"]
-[ext_resource type="PackedScene" uid="uid://o7nes6dcej83" path="res://Scenes/prefab/base_job_h_box_container_component.tscn" id="1_vk5i7"]
 [ext_resource type="Resource" uid="uid://ox7rhenr6wdv" path="res://Resources/gamedata.tres" id="2_x7cha"]
+[ext_resource type="PackedScene" uid="uid://cvyx0lbujqmp2" path="res://Scenes/prefab/base_job_v_box_container.tscn" id="3_x7cha"]
 
 [node name="col_2_VBoxContainer" type="VBoxContainer" unique_id=607190770]
 script = ExtResource("1_pfwx5")
@@ -14,67 +14,59 @@ bbcode_enabled = true
 text = "[b]Jobs[/b]"
 fit_content = true
 
-[node name="Label" type="Label" parent="." unique_id=502942476]
+[node name="HusbandryJobVBoxContainer" parent="." unique_id=1272703202 instance=ExtResource("3_x7cha")]
 layout_mode = 2
+
+[node name="job_label" parent="HusbandryJobVBoxContainer" index="0" unique_id=350415923]
 text = "Husbandry"
 
-[node name="husbandryHBoxContainerComponent" parent="." unique_id=480447583 instance=ExtResource("1_vk5i7")]
+[node name="childrearingJobVBoxContainer" parent="." unique_id=50359964 instance=ExtResource("3_x7cha")]
 layout_mode = 2
 
-[node name="Label2" type="Label" parent="." unique_id=97361257]
-layout_mode = 2
-text = "Child Rearing"
+[node name="job_label" parent="childrearingJobVBoxContainer" index="0" unique_id=350415923]
+text = "Childrearing"
 
-[node name="childrearingHBoxContainerComponent" parent="." unique_id=1057903226 instance=ExtResource("1_vk5i7")]
+[node name="huntingJobVBoxContainer" parent="." unique_id=520190639 instance=ExtResource("3_x7cha")]
 layout_mode = 2
 
-[node name="hunting" type="Label" parent="." unique_id=917069437]
-layout_mode = 2
+[node name="job_label" parent="huntingJobVBoxContainer" index="0" unique_id=350415923]
 text = "Hunting"
 
-[node name="huntingHBoxContainerComponent" parent="." unique_id=1937738059 instance=ExtResource("1_vk5i7")]
+[node name="pillagingJobVBoxContainer" parent="." unique_id=695017986 instance=ExtResource("3_x7cha")]
 layout_mode = 2
 
-[node name="Label4" type="Label" parent="." unique_id=230779289]
-visible = false
-layout_mode = 2
+[node name="job_label" parent="pillagingJobVBoxContainer" index="0" unique_id=350415923]
 text = "Pillaging"
 
-[node name="pillagingHBoxContainerComponent" parent="." unique_id=183650669 instance=ExtResource("1_vk5i7")]
+[node name="cullingJobVBoxContainer" parent="." unique_id=1822874909 instance=ExtResource("3_x7cha")]
 visible = false
 layout_mode = 2
 
-[node name="Label3" type="Label" parent="." unique_id=666131192]
-visible = false
-layout_mode = 2
+[node name="job_label" parent="cullingJobVBoxContainer" index="0" unique_id=350415923]
 text = "Culling"
-
-[node name="cullingHBoxContainerComponent" parent="." unique_id=307230184 instance=ExtResource("1_vk5i7")]
-visible = false
-layout_mode = 2
 
 [node name="blank_space" type="Label" parent="." unique_id=2064399575]
 layout_mode = 2
 
-[connection signal="pressed" from="husbandryHBoxContainerComponent/neg_10" to="." method="_husbandry_on_neg_10_pressed"]
-[connection signal="pressed" from="husbandryHBoxContainerComponent/neg_1" to="." method="_husbandry_on_neg_1_pressed"]
-[connection signal="pressed" from="husbandryHBoxContainerComponent/pos_1" to="." method="_husbandry_on_pos_1_pressed"]
-[connection signal="pressed" from="husbandryHBoxContainerComponent/pos_10" to="." method="_husbandry_on_pos_10_pressed"]
-[connection signal="pressed" from="childrearingHBoxContainerComponent/neg_10" to="." method="_childrearing_on_neg_10_pressed"]
-[connection signal="pressed" from="childrearingHBoxContainerComponent/neg_1" to="." method="_childrearing_on_neg_1_pressed"]
-[connection signal="pressed" from="childrearingHBoxContainerComponent/pos_1" to="." method="_childrearing_on_pos_1_pressed"]
-[connection signal="pressed" from="childrearingHBoxContainerComponent/pos_10" to="." method="_childrearing_on_pos_10_pressed"]
-[connection signal="pressed" from="huntingHBoxContainerComponent/neg_10" to="." method="_hunting_on_neg_10_pressed"]
-[connection signal="pressed" from="huntingHBoxContainerComponent/neg_1" to="." method="_hunting_on_neg_1_pressed"]
-[connection signal="pressed" from="huntingHBoxContainerComponent/pos_1" to="." method="_hunting_on_pos_1_pressed"]
-[connection signal="pressed" from="huntingHBoxContainerComponent/pos_10" to="." method="_hunting_on_pos_10_pressed"]
-[connection signal="pressed" from="pillagingHBoxContainerComponent/neg_10" to="." method="_pillaging_on_neg_10_pressed"]
-[connection signal="pressed" from="pillagingHBoxContainerComponent/neg_1" to="." method="_pillaging_on_neg_1_pressed"]
-[connection signal="pressed" from="pillagingHBoxContainerComponent/pos_1" to="." method="_pillaging_on_pos_1_pressed"]
-[connection signal="pressed" from="pillagingHBoxContainerComponent/pos_10" to="." method="_pillaging_on_pos_10_pressed"]
+[connection signal="pressed" from="HusbandryJobVBoxContainer/HBoxContainer/neg_10" to="." method="_husbandry_on_neg_10_pressed"]
+[connection signal="pressed" from="HusbandryJobVBoxContainer/HBoxContainer/neg_1" to="." method="_husbandry_on_neg_1_pressed"]
+[connection signal="pressed" from="HusbandryJobVBoxContainer/HBoxContainer/pos_1" to="." method="_husbandry_on_pos_1_pressed"]
+[connection signal="pressed" from="HusbandryJobVBoxContainer/HBoxContainer/pos_10" to="." method="_husbandry_on_pos_10_pressed"]
+[connection signal="pressed" from="childrearingJobVBoxContainer/HBoxContainer/neg_10" to="." method="_childrearing_on_neg_10_pressed"]
+[connection signal="pressed" from="childrearingJobVBoxContainer/HBoxContainer/neg_1" to="." method="_childrearing_on_neg_1_pressed"]
+[connection signal="pressed" from="childrearingJobVBoxContainer/HBoxContainer/pos_1" to="." method="_childrearing_on_pos_1_pressed"]
+[connection signal="pressed" from="childrearingJobVBoxContainer/HBoxContainer/pos_10" to="." method="_childrearing_on_pos_10_pressed"]
+[connection signal="pressed" from="huntingJobVBoxContainer/HBoxContainer/neg_10" to="." method="_hunting_on_neg_10_pressed"]
+[connection signal="pressed" from="huntingJobVBoxContainer/HBoxContainer/neg_1" to="." method="_hunting_on_neg_1_pressed"]
+[connection signal="pressed" from="huntingJobVBoxContainer/HBoxContainer/pos_1" to="." method="_hunting_on_pos_1_pressed"]
+[connection signal="pressed" from="huntingJobVBoxContainer/HBoxContainer/pos_10" to="." method="_hunting_on_pos_10_pressed"]
+[connection signal="pressed" from="pillagingJobVBoxContainer/HBoxContainer/neg_10" to="." method="_pillaging_on_neg_10_pressed"]
+[connection signal="pressed" from="pillagingJobVBoxContainer/HBoxContainer/neg_1" to="." method="_pillaging_on_neg_1_pressed"]
+[connection signal="pressed" from="pillagingJobVBoxContainer/HBoxContainer/pos_1" to="." method="_pillaging_on_pos_1_pressed"]
+[connection signal="pressed" from="pillagingJobVBoxContainer/HBoxContainer/pos_10" to="." method="_pillaging_on_pos_10_pressed"]
 
-[editable path="husbandryHBoxContainerComponent"]
-[editable path="childrearingHBoxContainerComponent"]
-[editable path="huntingHBoxContainerComponent"]
-[editable path="pillagingHBoxContainerComponent"]
-[editable path="cullingHBoxContainerComponent"]
+[editable path="HusbandryJobVBoxContainer"]
+[editable path="childrearingJobVBoxContainer"]
+[editable path="huntingJobVBoxContainer"]
+[editable path="pillagingJobVBoxContainer"]
+[editable path="cullingJobVBoxContainer"]

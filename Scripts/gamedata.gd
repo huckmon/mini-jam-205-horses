@@ -15,6 +15,8 @@ extends Resource
 @export var starvation_rate: float = 0.03
 @export var minimum_number_to_starve: float = 0.5
 @export var base_travel_distance: float = 0.5
+@export var base_pillage_time: float = 30
+@export var minimum_pillage_earning: float = 10
 
 @export_category("Resources")
 @export var nomad_count: float = 4
@@ -33,7 +35,13 @@ extends Resource
 @export var husbandry_worker_rate: float = 1
 @export var childrearing_worker_rate: float = 1
 @export var hunting_worker_rate: float = 1
+
+@export_category("Pillaging stats")
 @export var pillaging_worker_rate: float = 1
+@export var pillaging_travel_rate: float = 1
+@export var ready_pillagers: int = 0
+@export var sent_pillagers: int = 0
+@export var pillagers_out: bool = false
 
 @export_category("Local resource values")
 @export var current_local_food_available: float = 1000
@@ -42,5 +50,8 @@ extends Resource
 @export var distance_multiplier: float = 1.5
 @export var travelling: bool = false
 
+@export_category("Game state values")
 @export var not_starving: int = 1
 @export var game_state: int = 1 # 1 is normal, 0 is game over
+@export var first_time_10_horses_aquired: bool = false
+@export var first_time_wealth_aquired: bool = false

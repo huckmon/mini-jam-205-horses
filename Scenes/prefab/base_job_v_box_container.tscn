@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://cvyx0lbujqmp2"]
+
+[node name="baseJobVBoxContainer" type="VBoxContainer" unique_id=1272703202]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="job_label" type="Label" parent="." unique_id=350415923]
+layout_mode = 2
+text = "Job"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1663086678]
+layout_mode = 2
+theme_override_constants/separation = 1
+
+[node name="neg_10" type="Button" parent="HBoxContainer" unique_id=837668470]
+layout_mode = 2
+text = "-10"
+
+[node name="neg_1" type="Button" parent="HBoxContainer" unique_id=80839149]
+layout_mode = 2
+text = "-1"
+
+[node name="value" type="Label" parent="HBoxContainer" unique_id=2024709791]
+layout_mode = 2
+text = "No."
+
+[node name="pos_1" type="Button" parent="HBoxContainer" unique_id=173658073]
+layout_mode = 2
+text = "+1"
+
+[node name="pos_10" type="Button" parent="HBoxContainer" unique_id=19699067]
+layout_mode = 2
+text = "+10"

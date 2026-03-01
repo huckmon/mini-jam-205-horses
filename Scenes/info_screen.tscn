@@ -116,15 +116,16 @@ Travelling will take time with the speed covered being lower with the more horse
  "
 fit_content = true
 
-[node name="pillaging - WIP" type="RichTextLabel" parent="ScrollContainer/VBoxContainer" unique_id=412580525]
-visible = false
+[node name="pillaging" type="RichTextLabel" parent="ScrollContainer/VBoxContainer" unique_id=412580525]
 layout_mode = 2
 theme_override_constants/outline_size = 4
 bbcode_enabled = true
+text = "[b]Pillaging[/b]
+Pillaging is an activity to acquire wealth.
+Assigned pillagers will also need horses to pillage with the total pillagers shown as [code]assigned pillagers(ready pillagers)[/code]"
 fit_content = true
 
 [node name="development" type="RichTextLabel" parent="ScrollContainer/VBoxContainer" unique_id=2083965255]
-visible = false
 layout_mode = 2
 theme_override_constants/outline_size = 4
 bbcode_enabled = true

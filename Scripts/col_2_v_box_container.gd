@@ -3,12 +3,15 @@ extends VBoxContainer
 @export var gamedata : GameData
 
 # value ui elements
-@onready var husbandry_value = $husbandryHBoxContainerComponent/value
-@onready var childrearing_value = $childrearingHBoxContainerComponent/value
-@onready var hunting_value = $huntingHBoxContainerComponent/value
-@onready var pillaging_value = $pillagingHBoxContainerComponent/value
+@onready var husbandry_value = $HusbandryJobVBoxContainer/HBoxContainer/value
+@onready var childrearing_value = $childrearingJobVBoxContainer/HBoxContainer/value
+@onready var hunting_value = $huntingJobVBoxContainer/HBoxContainer/value
+@onready var pillaging_value = $pillagingJobVBoxContainer/HBoxContainer/value
 
 var total_jobs: float
+
+func _ready() -> void:
+	$pillagingJobVBoxContainer.visible = false
 
 func _physics_process(_delta: float) -> void:
 	update_values()
@@ -31,6 +34,9 @@ func _on_global_game_tick_timeout() -> void:
 func get_total_job_count(a: int = 0):
 	total_jobs = float(gamedata.husbandry_workers + gamedata.childrearing_workers + gamedata.hunting_workers + gamedata.pillaging_workers + a)
 	return total_jobs
+
+func _on_col_1_v_box_container_first_time_10_horses() -> void:
+	$pillagingJobVBoxContainer.visible = true
 
 #region Husbandry button signals
 func _husbandry_on_neg_10_pressed() -> void:

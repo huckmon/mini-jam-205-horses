@@ -17,6 +17,7 @@ func _ready() -> void:
 	global_game_tick.start((1/gamedata.tick_rate))
 	game_over_col.visible = false
 	info_screen.visible = false
+	
 
 func _on_global_game_tick_timeout() -> void:
 	global_game_tick.start((1/gamedata.tick_rate))
@@ -26,3 +27,6 @@ func _on_global_game_tick_timeout() -> void:
 
 func _on_info_button_pressed() -> void:
 	info_screen.visible = true
+
+func _on_col_1_v_box_container_first_time_10_horses() -> void:
+	$HBoxContainer/col_3_VBoxContainer.visible = true

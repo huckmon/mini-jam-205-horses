@@ -5,7 +5,6 @@
 [ext_resource type="Resource" uid="uid://ox7rhenr6wdv" path="res://Resources/gamedata.tres" id="2_2fsw4"]
 
 [node name="col_3_VBoxContainer" type="VBoxContainer" unique_id=1965166724]
-visible = false
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("1_2ievk")
@@ -18,14 +17,14 @@ text = "[b]Pillage[/b]"
 fit_content = true
 autowrap_mode = 0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=501673892]
+[node name="pillagers_waiting" type="HBoxContainer" parent="." unique_id=501673892]
 layout_mode = 2
 
-[node name="waiting_value" type="Label" parent="HBoxContainer" unique_id=1946336215]
+[node name="waiting_value" type="Label" parent="pillagers_waiting" unique_id=1946336215]
 layout_mode = 2
 text = "temp"
 
-[node name="waiting_label" type="Label" parent="HBoxContainer" unique_id=1389804019]
+[node name="waiting_label" type="Label" parent="pillagers_waiting" unique_id=1389804019]
 layout_mode = 2
 text = "Pillagers are waiting"
 
@@ -40,6 +39,27 @@ text = "temp"
 layout_mode = 2
 text = "Pillagers are out"
 
+[node name="waitingHBoxContainer" type="HBoxContainer" parent="." unique_id=1069472750]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="waitingHBoxContainer" unique_id=1260485509]
+layout_mode = 2
+text = "Waiting"
+
+[node name="dot0" type="Label" parent="waitingHBoxContainer" unique_id=2145331449]
+layout_mode = 2
+text = "."
+
+[node name="dot1" type="Label" parent="waitingHBoxContainer" unique_id=745825801]
+layout_mode = 2
+text = "."
+
+[node name="dot2" type="Label" parent="waitingHBoxContainer" unique_id=453425370]
+layout_mode = 2
+text = "."
+
+[node name="waiting_timer" type="Timer" parent="waitingHBoxContainer" unique_id=1252466368]
+
 [node name="pillage" type="Label" parent="." unique_id=82074257]
 layout_mode = 2
 
@@ -53,6 +73,9 @@ offset_right = 59.0
 offset_bottom = 15.5
 grow_vertical = 2
 text = "Pillage"
+
+[node name="pillage_timer" type="Timer" parent="pillage" unique_id=2101076730]
+wait_time = 0.5
 
 [node name="blankspace" type="Label" parent="." unique_id=1448995290]
 layout_mode = 2
@@ -102,6 +125,10 @@ size_flags_vertical = 3
 
 [node name="Label2" type="Label" parent="MarginContainer/scrollmarginwindow" unique_id=1535379281]
 layout_mode = 2
+
+[connection signal="timeout" from="waitingHBoxContainer/waiting_timer" to="." method="_on_waiting_timer_timeout"]
+[connection signal="pressed" from="pillage/pillage_button" to="." method="_on_pillage_button_pressed"]
+[connection signal="timeout" from="pillage/pillage_timer" to="." method="_on_pillage_timer_timeout"]
 
 [editable path="MarginContainer/ScrollContainer/VBoxContainer/developmentitemMarginContainer"]
 [editable path="MarginContainer/ScrollContainer/VBoxContainer/developmentitemMarginContainer2"]
