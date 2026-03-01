@@ -4,6 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://bwm44ihoc2lsf" path="res://Scenes/col_1_v_box_container.tscn" id="2_6h5vk"]
 [ext_resource type="PackedScene" uid="uid://rvtrrs7ccuto" path="res://Scenes/col_2_v_box_container.tscn" id="2_b6fju"]
 [ext_resource type="Resource" uid="uid://ox7rhenr6wdv" path="res://Resources/gamedata.tres" id="2_fiftr"]
+[ext_resource type="PackedScene" uid="uid://2siny1tl3h0x" path="res://Scenes/col_3_v_box_container.tscn" id="5_1ixah"]
+[ext_resource type="PackedScene" uid="uid://cgbmyewihxo6p" path="res://Scenes/col_4_v_box_container.tscn" id="6_rgj8m"]
 
 [node name="GameScene" type="CanvasLayer" unique_id=1608268263]
 script = ExtResource("1_x87qo")
@@ -17,19 +19,26 @@ offset_top = 10.0
 offset_right = 351.0
 offset_bottom = 308.0
 
-[node name="Col1_VBoxContainer" parent="HBoxContainer" unique_id=234414940 instance=ExtResource("2_6h5vk")]
+[node name="col_1_VBoxContainer" parent="HBoxContainer" unique_id=234414940 instance=ExtResource("2_6h5vk")]
 layout_mode = 2
 
-[node name="Col2_VBoxContainer" parent="HBoxContainer" unique_id=607190770 instance=ExtResource("2_b6fju")]
+[node name="col_2_VBoxContainer" parent="HBoxContainer" unique_id=607190770 instance=ExtResource("2_b6fju")]
+layout_mode = 2
+
+[node name="col_3_VBoxContainer" parent="HBoxContainer" unique_id=1965166724 instance=ExtResource("5_1ixah")]
+layout_mode = 2
+
+[node name="col_4_VBoxContainer" parent="HBoxContainer" unique_id=822112598 instance=ExtResource("6_rgj8m")]
 layout_mode = 2
 
 [connection signal="timeout" from="globalGameTick" to="." method="_on_global_game_tick_timeout"]
-[connection signal="timeout" from="globalGameTick" to="HBoxContainer/Col1_VBoxContainer" method="_on_global_game_tick_timeout"]
-[connection signal="timeout" from="globalGameTick" to="HBoxContainer/Col2_VBoxContainer" method="_on_global_game_tick_timeout"]
+[connection signal="timeout" from="globalGameTick" to="HBoxContainer/col_1_VBoxContainer" method="_on_global_game_tick_timeout"]
+[connection signal="timeout" from="globalGameTick" to="HBoxContainer/col_2_VBoxContainer" method="_on_global_game_tick_timeout"]
 
-[editable path="HBoxContainer/Col1_VBoxContainer"]
-[editable path="HBoxContainer/Col2_VBoxContainer"]
-[editable path="HBoxContainer/Col2_VBoxContainer/husbandryHBoxContainerComponent"]
-[editable path="HBoxContainer/Col2_VBoxContainer/childrearingHBoxContainerComponent"]
-[editable path="HBoxContainer/Col2_VBoxContainer/huntingHBoxContainerComponent"]
-[editable path="HBoxContainer/Col2_VBoxContainer/pillagingHBoxContainerComponent"]
+[editable path="HBoxContainer/col_1_VBoxContainer"]
+[editable path="HBoxContainer/col_2_VBoxContainer"]
+[editable path="HBoxContainer/col_2_VBoxContainer/husbandryHBoxContainerComponent"]
+[editable path="HBoxContainer/col_2_VBoxContainer/childrearingHBoxContainerComponent"]
+[editable path="HBoxContainer/col_2_VBoxContainer/huntingHBoxContainerComponent"]
+[editable path="HBoxContainer/col_2_VBoxContainer/pillagingHBoxContainerComponent"]
+[editable path="HBoxContainer/col_2_VBoxContainer/cullingHBoxContainerComponent"]

@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://bwm44ihoc2lsf"]
 
-[ext_resource type="Script" uid="uid://b37aqw1juptox" path="res://Scenes/col_1_v_box_container.gd" id="1_e61ng"]
+[ext_resource type="Script" uid="uid://b37aqw1juptox" path="res://Scripts/col_1_v_box_container.gd" id="1_e61ng"]
 [ext_resource type="Resource" uid="uid://ox7rhenr6wdv" path="res://Resources/gamedata.tres" id="2_oi8vr"]
 
-[node name="Col1_VBoxContainer" type="VBoxContainer" unique_id=234414940]
+[node name="col_1_VBoxContainer" type="VBoxContainer" unique_id=234414940]
 offset_right = 120.0
 offset_bottom = 269.0
 script = ExtResource("1_e61ng")
@@ -14,6 +14,10 @@ layout_mode = 2
 bbcode_enabled = true
 text = "[b]Resources[/b]"
 fit_content = true
+
+[node name="starving" type="Label" parent="." unique_id=227566568]
+layout_mode = 2
+text = "Starving!"
 
 [node name="nomadsHBoxContainer" type="HBoxContainer" parent="." unique_id=1304170862]
 layout_mode = 2

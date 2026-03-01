@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://2siny1tl3h0x"]
+
+[ext_resource type="PackedScene" uid="uid://cge77bbibwdhv" path="res://Scenes/prefab/researchitem_margin_container.tscn" id="1_lyceo"]
+
+[node name="col_3_VBoxContainer" type="VBoxContainer" unique_id=1965166724]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=658971777]
+layout_mode = 2
+bbcode_enabled = true
+text = "[b]Pillage[/b]"
+fit_content = true
+autowrap_mode = 0
+
+[node name="blankspace" type="Label" parent="." unique_id=82074257]
+layout_mode = 2
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="." unique_id=909860012]
+layout_mode = 2
+bbcode_enabled = true
+text = "[b]Research[/b]"
+fit_content = true
+autowrap_mode = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=275669100]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer" unique_id=1274792782]
+layout_mode = 2
+theme_override_constants/scrollbar_h_separation = 4
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/ScrollContainer" unique_id=146078681]
+layout_mode = 2
+
+[node name="researchitemMarginContainer" parent="MarginContainer/ScrollContainer/VBoxContainer" unique_id=399311976 instance=ExtResource("1_lyceo")]
+layout_mode = 2
+
+[node name="researchitemMarginContainer2" parent="MarginContainer/ScrollContainer/VBoxContainer" unique_id=1355179699 instance=ExtResource("1_lyceo")]
+layout_mode = 2
+
+[node name="researchitemMarginContainer3" parent="MarginContainer/ScrollContainer/VBoxContainer" unique_id=2102706275 instance=ExtResource("1_lyceo")]
+layout_mode = 2
+
+[node name="researchitemMarginContainer4" parent="MarginContainer/ScrollContainer/VBoxContainer" unique_id=22392776 instance=ExtResource("1_lyceo")]
+layout_mode = 2
+
+[node name="scrollmarginwindow" type="VBoxContainer" parent="MarginContainer" unique_id=525058897]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 100
+
+[node name="Label" type="Label" parent="MarginContainer/scrollmarginwindow" unique_id=51669553]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label2" type="Label" parent="MarginContainer/scrollmarginwindow" unique_id=1535379281]
+layout_mode = 2
+
+[editable path="MarginContainer/ScrollContainer/VBoxContainer/researchitemMarginContainer"]
+[editable path="MarginContainer/ScrollContainer/VBoxContainer/researchitemMarginContainer2"]
+[editable path="MarginContainer/ScrollContainer/VBoxContainer/researchitemMarginContainer3"]
+[editable path="MarginContainer/ScrollContainer/VBoxContainer/researchitemMarginContainer4"]

@@ -21,6 +21,7 @@ func _ready() -> void:
 	# things to disable at start
 	$distanceremainingHBoxContainer.visible = false
 	$timeleftHBoxContainer.visible = false
+	$starving.visible = false
 
 func _physics_process(_delta: float) -> void:
 	update_values()
@@ -48,19 +49,24 @@ func _on_global_game_tick_timeout() -> void:
 		travelling()
 	if gamedata.food_count <= 0:
 		starvation()
-	else:
+	elif gamedata.not_starving == 0:
 		gamedata.not_starving = 1
+		$starving.visible = false
 
 func starvation():
+	# NOTE: Add starving notification
+	$starving.visible = true
 	gamedata.not_starving = 0
 	if gamedata.horse_count > 0:
-		print(gamedata.horse_count * gamedata.starvation_rate," horses will starve")
-		gamedata.horse_count -= gamedata.horse_count * gamedata.starvation_rate
+		print(maxf(gamedata.minimum_number_to_starve, (gamedata.horse_count * gamedata.starvation_rate))," horses starved")
+		gamedata.horse_count -= maxf(gamedata.minimum_number_to_starve, (gamedata.horse_count * gamedata.starvation_rate))
 	if gamedata.nomad_count > 0:
-		print(gamedata.nomad_count * gamedata.starvation_rate," nomads will starve")
-		gamedata.nomad_count -= gamedata.nomad_count * gamedata.starvation_rate
+		print(maxf(gamedata.minimum_number_to_starve, gamedata.nomad_count * gamedata.starvation_rate)," nomads starved")
+		gamedata.nomad_count -= maxf(gamedata.minimum_number_to_starve, gamedata.nomad_count * gamedata.starvation_rate)
 	if gamedata.nomad_count < float(gamedata.husbandry_workers + gamedata.childrearing_workers + gamedata.hunting_workers + gamedata.pillaging_workers):
 		remove_jobs()
+	if gamedata.nomad_count < 1:
+		gamedata.game_state = 0
 		
 func remove_jobs():
 	while gamedata.nomad_count < float(gamedata.husbandry_workers + gamedata.childrearing_workers + gamedata.hunting_workers + gamedata.pillaging_workers):
@@ -80,7 +86,7 @@ func generate_distance_to_travel():
 	gamedata.distance_to_next_area = randi_range(int(gamedata.minimum_distance_to_next_area), int(gamedata.minimum_distance_to_next_area * (gamedata.distance_multiplier)))
 
 func travelling():
-	gamedata.distance_remainging_to_travel -= (gamedata.horse_count * gamedata.horse_distance_rate) / (gamedata.nomad_count + (gamedata.food_count/4))
+	gamedata.distance_remainging_to_travel -= (gamedata.horse_count * gamedata.horse_distance_rate) / (gamedata.nomad_count/2)
 	if gamedata.distance_remainging_to_travel <= 0:
 		gamedata.travelling = false
 		migrate_button.disabled = false

@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://cgbmyewihxo6p"]
+
+[node name="col_4_VBoxContainer" type="VBoxContainer" unique_id=822112598]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=591678263]
+layout_mode = 2
+bbcode_enabled = true
+text = "[b]Game Over[/b]			"
+fit_content = true
+autowrap_mode = 0
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="." unique_id=2026836420]
+layout_mode = 2
+text = "The tribe has been wiped out"
+fit_content = true
+
+[node name="Label" type="Label" parent="." unique_id=1442316114]
+visible = false
+layout_mode = 2
+
+[node name="restart_button" type="Button" parent="Label" unique_id=876402773]
+visible = false
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -15.5
+offset_right = 72.0
+offset_bottom = 15.5
+grow_vertical = 2
+text = "Restart?"
+
+[node name="blank_space" type="Label" parent="." unique_id=14821387]
+layout_mode = 2
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="." unique_id=1943342216]
+layout_mode = 2
+text = "Restart the page to try again"
+fit_content = true
