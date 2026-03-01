@@ -14,6 +14,7 @@ extends Resource
 @export var hunting_work_base: float = 0.66
 @export var starvation_rate: float = 0.03
 @export var minimum_number_to_starve: float = 0.5
+@export var base_travel_distance: float = 0.5
 
 @export_category("Resources")
 @export var nomad_count: float = 4

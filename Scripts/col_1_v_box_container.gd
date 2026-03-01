@@ -30,12 +30,12 @@ func _physics_process(_delta: float) -> void:
 	
 	
 func update_values() -> void:
-	nomad_count.text = str(snapped(gamedata.nomad_count, 1))
-	horse_count.text = str(snapped(gamedata.horse_count, 1))
-	food_count.text = str(snapped(gamedata.food_count, 1))
-	wealth_count.text = str(snapped(gamedata.wealth_count, 1))
-	local_food_count.text = str(snapped(gamedata.current_local_food_available, 1))
-	distance_to_travel_ui.text = str(snapped(gamedata.distance_to_next_area, 1))
+	nomad_count.text = str(int(floorf(gamedata.nomad_count)))
+	horse_count.text = str(int(floorf(gamedata.horse_count)))
+	food_count.text = str(int(floorf(gamedata.food_count)))
+	wealth_count.text = str(int(floorf(gamedata.wealth_count)))
+	local_food_count.text = str(int(floorf(gamedata.current_local_food_available)))
+	distance_to_travel_ui.text = str(snapped(gamedata.distance_to_next_area, 0.01))
 	if gamedata.travelling:
 		distance_remaining_to_travel_ui.text = str(snapped(gamedata.distance_remainging_to_travel, 1))
 
@@ -86,12 +86,17 @@ func generate_distance_to_travel():
 	gamedata.distance_to_next_area = randi_range(int(gamedata.minimum_distance_to_next_area), int(gamedata.minimum_distance_to_next_area * (gamedata.distance_multiplier)))
 
 func travelling():
-	gamedata.distance_remainging_to_travel -= (gamedata.horse_count * gamedata.horse_distance_rate) / (gamedata.nomad_count/2)
+	gamedata.distance_remainging_to_travel -= gamedata.base_travel_distance + (gamedata.horse_count * gamedata.horse_distance_rate) / ((gamedata.nomad_count/2)+ (gamedata.food_count/8))
 	if gamedata.distance_remainging_to_travel <= 0:
 		gamedata.travelling = false
 		migrate_button.disabled = false
 		$availablefoodHBoxContainer.visible = true
 		$distanceremainingHBoxContainer.visible = false
+		$distancetotravelHBoxContainer.visible = true
+		generate_local()
+
+func generate_local():
+	gamedata.current_local_food_available = randf_range(gamedata.minimum_local_food_available, ((1 + ((gamedata.nomad_count + gamedata.horse_count) * 0.01)) * gamedata.minimum_local_food_available))
 
 func _on_migrate_button_pressed() -> void:
 	if gamedata.travelling:
@@ -100,5 +105,6 @@ func _on_migrate_button_pressed() -> void:
 	migrate_button.disabled = true
 	$availablefoodHBoxContainer.visible = false
 	$distanceremainingHBoxContainer.visible = true
+	$distancetotravelHBoxContainer.visible = false
 	gamedata.distance_remainging_to_travel = gamedata.distance_to_next_area
 	gamedata.travelling = true

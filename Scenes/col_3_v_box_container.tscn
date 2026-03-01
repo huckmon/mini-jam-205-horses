@@ -1,10 +1,15 @@
 [gd_scene format=3 uid="uid://2siny1tl3h0x"]
 
+[ext_resource type="Script" uid="uid://cb0yawdjpaj1g" path="res://Scripts/col_3_v_box_container.gd" id="1_2ievk"]
 [ext_resource type="PackedScene" uid="uid://cge77bbibwdhv" path="res://Scenes/prefab/researchitem_margin_container.tscn" id="1_lyceo"]
+[ext_resource type="Resource" uid="uid://ox7rhenr6wdv" path="res://Resources/gamedata.tres" id="2_2fsw4"]
 
 [node name="col_3_VBoxContainer" type="VBoxContainer" unique_id=1965166724]
+visible = false
 offset_right = 40.0
 offset_bottom = 40.0
+script = ExtResource("1_2ievk")
+gamedata = ExtResource("2_2fsw4")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=658971777]
 layout_mode = 2
@@ -13,13 +18,49 @@ text = "[b]Pillage[/b]"
 fit_content = true
 autowrap_mode = 0
 
-[node name="blankspace" type="Label" parent="." unique_id=82074257]
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=501673892]
+layout_mode = 2
+
+[node name="waiting_value" type="Label" parent="HBoxContainer" unique_id=1946336215]
+layout_mode = 2
+text = "temp"
+
+[node name="waiting_label" type="Label" parent="HBoxContainer" unique_id=1389804019]
+layout_mode = 2
+text = "Pillagers are waiting"
+
+[node name="pillagers_out" type="HBoxContainer" parent="." unique_id=1547032]
+layout_mode = 2
+
+[node name="out_value" type="Label" parent="pillagers_out" unique_id=709565390]
+layout_mode = 2
+text = "temp"
+
+[node name="out_label" type="Label" parent="pillagers_out" unique_id=515460872]
+layout_mode = 2
+text = "Pillagers are out"
+
+[node name="pillage" type="Label" parent="." unique_id=82074257]
+layout_mode = 2
+
+[node name="pillage_button" type="Button" parent="pillage" unique_id=964442906]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -15.5
+offset_right = 59.0
+offset_bottom = 15.5
+grow_vertical = 2
+text = "Pillage"
+
+[node name="blankspace" type="Label" parent="." unique_id=1448995290]
 layout_mode = 2
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="." unique_id=909860012]
 layout_mode = 2
 bbcode_enabled = true
-text = "[b]Research[/b]"
+text = "[b]Development[/b]"
 fit_content = true
 autowrap_mode = 0
 
@@ -35,17 +76,19 @@ vertical_scroll_mode = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/ScrollContainer" unique_id=146078681]
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 
-[node name="researchitemMarginContainer" parent="MarginContainer/ScrollContainer/VBoxContainer" unique_id=399311976 instance=ExtResource("1_lyceo")]
+[node name="developmentitemMarginContainer" parent="MarginContainer/ScrollContainer/VBoxContainer" unique_id=399311976 instance=ExtResource("1_lyceo")]
 layout_mode = 2
 
-[node name="researchitemMarginContainer2" parent="MarginContainer/ScrollContainer/VBoxContainer" unique_id=1355179699 instance=ExtResource("1_lyceo")]
+[node name="developmentitemMarginContainer2" parent="MarginContainer/ScrollContainer/VBoxContainer" unique_id=1355179699 instance=ExtResource("1_lyceo")]
 layout_mode = 2
 
-[node name="researchitemMarginContainer3" parent="MarginContainer/ScrollContainer/VBoxContainer" unique_id=2102706275 instance=ExtResource("1_lyceo")]
+[node name="developmentitemMarginContainer3" parent="MarginContainer/ScrollContainer/VBoxContainer" unique_id=2102706275 instance=ExtResource("1_lyceo")]
 layout_mode = 2
 
-[node name="researchitemMarginContainer4" parent="MarginContainer/ScrollContainer/VBoxContainer" unique_id=22392776 instance=ExtResource("1_lyceo")]
+[node name="developmentitemMarginContainer4" parent="MarginContainer/ScrollContainer/VBoxContainer" unique_id=22392776 instance=ExtResource("1_lyceo")]
 layout_mode = 2
 
 [node name="scrollmarginwindow" type="VBoxContainer" parent="MarginContainer" unique_id=525058897]
@@ -60,7 +103,7 @@ size_flags_vertical = 3
 [node name="Label2" type="Label" parent="MarginContainer/scrollmarginwindow" unique_id=1535379281]
 layout_mode = 2
 
-[editable path="MarginContainer/ScrollContainer/VBoxContainer/researchitemMarginContainer"]
-[editable path="MarginContainer/ScrollContainer/VBoxContainer/researchitemMarginContainer2"]
-[editable path="MarginContainer/ScrollContainer/VBoxContainer/researchitemMarginContainer3"]
-[editable path="MarginContainer/ScrollContainer/VBoxContainer/researchitemMarginContainer4"]
+[editable path="MarginContainer/ScrollContainer/VBoxContainer/developmentitemMarginContainer"]
+[editable path="MarginContainer/ScrollContainer/VBoxContainer/developmentitemMarginContainer2"]
+[editable path="MarginContainer/ScrollContainer/VBoxContainer/developmentitemMarginContainer3"]
+[editable path="MarginContainer/ScrollContainer/VBoxContainer/developmentitemMarginContainer4"]

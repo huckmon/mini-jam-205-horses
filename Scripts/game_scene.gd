@@ -10,14 +10,19 @@ extends CanvasLayer
 
 @onready var global_game_tick = $globalGameTick
 @onready var game_over_col = $HBoxContainer/col_4_VBoxContainer
+@onready var info_screen = $infoScreen
 
 func _ready() -> void:
 	global_game_tick.wait_time = gamedata.tick_rate
 	global_game_tick.start((1/gamedata.tick_rate))
 	game_over_col.visible = false
+	info_screen.visible = false
 
 func _on_global_game_tick_timeout() -> void:
 	global_game_tick.start((1/gamedata.tick_rate))
 	if gamedata.game_state == 0:
 		game_over_col.visible = true
 		global_game_tick.stop()
+
+func _on_info_button_pressed() -> void:
+	info_screen.visible = true

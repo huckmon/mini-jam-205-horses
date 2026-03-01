@@ -36,17 +36,21 @@ text = "Hunting"
 layout_mode = 2
 
 [node name="Label4" type="Label" parent="." unique_id=230779289]
+visible = false
 layout_mode = 2
 text = "Pillaging"
 
 [node name="pillagingHBoxContainerComponent" parent="." unique_id=183650669 instance=ExtResource("1_vk5i7")]
+visible = false
 layout_mode = 2
 
 [node name="Label3" type="Label" parent="." unique_id=666131192]
+visible = false
 layout_mode = 2
 text = "Culling"
 
 [node name="cullingHBoxContainerComponent" parent="." unique_id=307230184 instance=ExtResource("1_vk5i7")]
+visible = false
 layout_mode = 2
 
 [node name="blank_space" type="Label" parent="." unique_id=2064399575]

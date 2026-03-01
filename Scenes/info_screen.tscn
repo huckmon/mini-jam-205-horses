@@ -1,0 +1,150 @@
+[gd_scene format=3 uid="uid://clckpq1vsywx8"]
+
+[ext_resource type="Script" uid="uid://dcbp3xfgxo6br" path="res://Scripts/info_screen.gd" id="1_we36b"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fa5xw"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(1, 0.101960786, 0.101960786, 0.6)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[node name="infoScreen" type="MarginContainer" unique_id=495010546]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+script = ExtResource("1_we36b")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=186940503]
+layout_mode = 2
+horizontal_scroll_mode = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer" unique_id=1412587001]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer/VBoxContainer" unique_id=1498509352]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ScrollContainer/VBoxContainer/HBoxContainer" unique_id=1496037132]
+layout_mode = 2
+bbcode_enabled = true
+text = "[b]Info Menu[/b]"
+fit_content = true
+autowrap_mode = 0
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/HBoxContainer" unique_id=610113568]
+layout_mode = 2
+size_flags_horizontal = 10
+
+[node name="close_button" type="Button" parent="ScrollContainer/VBoxContainer/HBoxContainer/Label" unique_id=1465648399]
+z_index = 1
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -18.0
+offset_top = -15.5
+offset_bottom = 15.5
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_fa5xw")
+text = "X"
+
+[node name="game_overview" type="RichTextLabel" parent="ScrollContainer/VBoxContainer" unique_id=216689821]
+layout_mode = 2
+theme_override_constants/outline_size = 4
+bbcode_enabled = true
+text = "[b]Game Overview[/b]
+The goal of this game is to raise the greatest tribe the plains have ever seen. 
+
+To do that you will grow your tribe by assigning tribe members to hunt for food, raise young tribesmen, raise horses, and pillage any peoples you come across.
+ "
+fit_content = true
+
+[node name="resources" type="RichTextLabel" parent="ScrollContainer/VBoxContainer" unique_id=316647835]
+layout_mode = 2
+theme_override_constants/outline_size = 4
+bbcode_enabled = true
+text = "[b]Resources[/b]
+There are four resources you will need to manage to lead your tribe to greatness
+[b]Nomads[/b] - Your people who you can assign to jobs to generate resources. You will lose the game if you reach zero nomads.
+[b]Horses[/b] - Horses are used to lower the amount of time needed to travel to a new area. Horses are also needed for pillaging.
+[b]Food[/b] - Food is needed to sustain your people and horses, if your food reaches zero, your tribe will starve and die slowly.
+[b]Wealth[/b] - Wealth can be used for research and development for the betterment of the tribe.
+ "
+fit_content = true
+
+[node name="jobs" type="RichTextLabel" parent="ScrollContainer/VBoxContainer" unique_id=342686058]
+layout_mode = 2
+theme_override_constants/outline_size = 4
+bbcode_enabled = true
+text = "[b]Jobs[/b]
+There are four job types you can assign your nomads to:
+[b]Husbandry[/b] - Raise new horses
+[b]Childrearing[/b] - Raise new nomads
+[b]Hunting[/b] - Hunt for food. To generate food, hunters require that there is food locally available
+[b]Pillaging[/b] - Pillagers can be sent out periodically to pillage local peoples and return with wealth. There will need to be a horse available for each pillager.
+ "
+fit_content = true
+
+[node name="area" type="RichTextLabel" parent="ScrollContainer/VBoxContainer" unique_id=1829557756]
+layout_mode = 2
+theme_override_constants/outline_size = 4
+bbcode_enabled = true
+text = "[b]Areas[/b]
+An [b]Area[/b] is where you reside for a period. 
+An area has an available amount of food that will eventually be depleted and require you to travel.
+Travelling will take time with the speed covered being lower with the more horses you have to your number of nomads and food stores.
+ "
+fit_content = true
+
+[node name="pillaging - WIP" type="RichTextLabel" parent="ScrollContainer/VBoxContainer" unique_id=412580525]
+visible = false
+layout_mode = 2
+theme_override_constants/outline_size = 4
+bbcode_enabled = true
+fit_content = true
+
+[node name="development" type="RichTextLabel" parent="ScrollContainer/VBoxContainer" unique_id=2083965255]
+visible = false
+layout_mode = 2
+theme_override_constants/outline_size = 4
+bbcode_enabled = true
+text = "[b]Development[/b]
+Developments require wealth to pursue. 
+They are improvements to your tribes capabilities such as producing food or travelling to new areas faster.
+The entire list of developments is available to be scrolled through."
+fit_content = true
+
+[node name="template" type="RichTextLabel" parent="ScrollContainer/VBoxContainer" unique_id=2012412213]
+visible = false
+layout_mode = 2
+theme_override_constants/outline_size = 4
+bbcode_enabled = true
+fit_content = true
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1233964]
+z_index = -1
+layout_mode = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0.88235295)
+
+[connection signal="pressed" from="ScrollContainer/VBoxContainer/HBoxContainer/Label/close_button" to="." method="_on_close_button_pressed"]
