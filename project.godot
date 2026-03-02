@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="tribal-aspirations"
+config/name="Tribal Aspirations"
 config/tags=PackedStringArray("game_jam")
 run/main_scene="uid://d0p6onk7dnlu5"
 config/features=PackedStringArray("4.6", "GL Compatibility")
@@ -19,7 +19,7 @@ config/icon="uid://clv6bkhuud43d"
 
 [display]
 
-window/stretch/mode="viewport"
+window/stretch/mode="canvas_items"
 
 [global_group]
 
@@ -37,3 +37,5 @@ pillaging=""
 rendering_device/driver.windows="d3d12"
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+anti_aliasing/quality/msaa_2d=1
+anti_aliasing/quality/msaa_3d=1
