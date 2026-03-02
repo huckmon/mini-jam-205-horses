@@ -4,9 +4,9 @@ extends Resource
 @export var tick_rate: float = 1.0
 
 @export_category("Constants")
-@export var food_use_per_nomad: float = 0.2
-@export var food_use_per_horse: float = 0.4
-@export var minimum_local_food_available: float = 500
+@export var food_use_per_nomad: float = 0.1
+@export var food_use_per_horse: float = 0.2
+@export var minimum_local_food_available: float = 1000
 @export var minimum_distance_to_next_area: float = 10
 @export var hunter_local_food_subtraction: float = 0.5
 @export var husbandry_work_base: float = 0.1
@@ -49,9 +49,19 @@ extends Resource
 @export var distance_remainging_to_travel: float = 0
 @export var distance_multiplier: float = 1.5
 @export var travelling: bool = false
+@export var times_migrated: float = 0
 
 @export_category("Game state values")
 @export var not_starving: int = 1
 @export var game_state: int = 1 # 1 is normal, 0 is game over
-@export var first_time_10_horses_aquired: bool = false
-@export var first_time_wealth_aquired: bool = false
+@export var auto_migrate: int = 0
+@export var first_time_10_horses_acquired: bool = false
+@export var first_time_wealth_acquired: bool = false
+
+@export_category("Research costs")
+@export var husbandry_improvement_cost: float = 100
+@export var childrearing_improvement_cost: float = 100
+@export var hunting_improvement_cost: float = 100
+@export var pillaging_improvement_cost: float = 100
+@export var horse_distance_improvement_cost: float = 100
+@export var auto_migrate_cost: float = 1000

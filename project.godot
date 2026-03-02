@@ -14,11 +14,19 @@ config/name="mini-jam-205-horses"
 config/tags=PackedStringArray("game_jam")
 run/main_scene="uid://d0p6onk7dnlu5"
 config/features=PackedStringArray("4.6", "GL Compatibility")
-config/icon="res://icon.svg"
+boot_splash/image="uid://c3et63c2vhqld"
+config/icon="uid://clv6bkhuud43d"
 
 [display]
 
-window/stretch/mode="canvas_items"
+window/stretch/mode="viewport"
+
+[global_group]
+
+hunting=""
+husbandry=""
+childrearing=""
+pillaging=""
 
 [physics]
 

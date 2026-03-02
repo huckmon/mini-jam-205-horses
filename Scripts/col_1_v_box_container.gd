@@ -50,23 +50,26 @@ func _on_global_game_tick_timeout() -> void:
 		travelling()
 	if gamedata.food_count <= 0:
 		starvation()
+	if gamedata.current_local_food_available <= 0 and gamedata.auto_migrate == 1 and not gamedata.travelling:
+		start_migrating()
 	elif gamedata.not_starving == 0:
 		gamedata.not_starving = 1
 		$starving.visible = false
-	if not gamedata.first_time_10_horses_aquired:
-		if floorf(gamedata.horse_count) > 9:
-			gamedata.first_time_10_horses_aquired = true
-			first_time_10_horses.emit()
+	if gamedata.first_time_10_horses_acquired:
+		return
+	if floorf(gamedata.horse_count) > 9:
+		gamedata.first_time_10_horses_acquired = true
+		first_time_10_horses.emit()
 
 func starvation():
 	# NOTE: Add starving notification
 	$starving.visible = true
 	gamedata.not_starving = 0
 	if gamedata.horse_count > 0:
-		print(maxf(gamedata.minimum_number_to_starve, (gamedata.horse_count * gamedata.starvation_rate))," horses starved")
+		#print(maxf(gamedata.minimum_number_to_starve, (gamedata.horse_count * gamedata.starvation_rate))," horses starved")
 		gamedata.horse_count -= maxf(gamedata.minimum_number_to_starve, (gamedata.horse_count * gamedata.starvation_rate))
 	if gamedata.nomad_count > 0:
-		print(maxf(gamedata.minimum_number_to_starve, gamedata.nomad_count * gamedata.starvation_rate)," nomads starved")
+		#print(maxf(gamedata.minimum_number_to_starve, gamedata.nomad_count * gamedata.starvation_rate)," nomads starved")
 		gamedata.nomad_count -= maxf(gamedata.minimum_number_to_starve, gamedata.nomad_count * gamedata.starvation_rate)
 	if gamedata.nomad_count < float(gamedata.husbandry_workers + gamedata.childrearing_workers + gamedata.hunting_workers + gamedata.pillaging_workers):
 		remove_jobs()
@@ -84,14 +87,13 @@ func remove_jobs():
 		elif gamedata.hunting_workers > 0:
 			gamedata.hunting_workers -= 1
 		else:
-			print("game over")
 			break
 
 func generate_distance_to_travel():
-	gamedata.distance_to_next_area = randi_range(int(gamedata.minimum_distance_to_next_area), int(gamedata.minimum_distance_to_next_area * (gamedata.distance_multiplier)))
+	gamedata.distance_to_next_area = randi_range(int(gamedata.minimum_distance_to_next_area * 0.9), int(gamedata.minimum_distance_to_next_area * 2))
 
 func travelling():
-	gamedata.distance_remainging_to_travel -= gamedata.base_travel_distance + (gamedata.horse_count * gamedata.horse_distance_rate) / ((gamedata.nomad_count/2)+ (gamedata.food_count/8))
+	gamedata.distance_remainging_to_travel -=  ((pow(1.1, gamedata.horse_distance_rate) * gamedata.horse_count)) / ((gamedata.nomad_count/4)+ (gamedata.food_count/8)) + gamedata.base_travel_distance
 	if gamedata.distance_remainging_to_travel <= 0:
 		gamedata.travelling = false
 		migrate_button.disabled = false
@@ -101,15 +103,18 @@ func travelling():
 		generate_local()
 
 func generate_local():
-	gamedata.current_local_food_available = randf_range(gamedata.minimum_local_food_available, ((1 + ((gamedata.nomad_count + gamedata.horse_count) * 0.01)) * gamedata.minimum_local_food_available))
+	gamedata.current_local_food_available = randf_range(gamedata.minimum_local_food_available, (pow(1.1,gamedata.times_migrated) * gamedata.minimum_local_food_available))
 
 func _on_migrate_button_pressed() -> void:
 	if gamedata.travelling:
 		return
-	print("starting travelling")
+	start_migrating()
+	
+func start_migrating():
 	migrate_button.disabled = true
 	$availablefoodHBoxContainer.visible = false
 	$distanceremainingHBoxContainer.visible = true
 	$distancetotravelHBoxContainer.visible = false
 	gamedata.distance_remainging_to_travel = gamedata.distance_to_next_area
 	gamedata.travelling = true
+	gamedata.times_migrated += 1

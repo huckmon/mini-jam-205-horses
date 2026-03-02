@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://2siny1tl3h0x"]
 
 [ext_resource type="Script" uid="uid://cb0yawdjpaj1g" path="res://Scripts/col_3_v_box_container.gd" id="1_2ievk"]
-[ext_resource type="PackedScene" uid="uid://cge77bbibwdhv" path="res://Scenes/prefab/researchitem_margin_container.tscn" id="1_lyceo"]
 [ext_resource type="Resource" uid="uid://ox7rhenr6wdv" path="res://Resources/gamedata.tres" id="2_2fsw4"]
+[ext_resource type="PackedScene" uid="uid://bfcrjh7wxo6x3" path="res://Scenes/research_manager.tscn" id="3_2fsw4"]
 
 [node name="col_3_VBoxContainer" type="VBoxContainer" unique_id=1965166724]
 offset_right = 40.0
@@ -80,57 +80,24 @@ wait_time = 0.5
 [node name="blankspace" type="Label" parent="." unique_id=1448995290]
 layout_mode = 2
 
-[node name="RichTextLabel2" type="RichTextLabel" parent="." unique_id=909860012]
+[node name="development_label" type="RichTextLabel" parent="." unique_id=909860012]
 layout_mode = 2
 bbcode_enabled = true
 text = "[b]Development[/b]"
 fit_content = true
 autowrap_mode = 0
 
-[node name="MarginContainer" type="MarginContainer" parent="." unique_id=275669100]
-layout_mode = 2
-theme_override_constants/margin_left = 4
-
-[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer" unique_id=1274792782]
-layout_mode = 2
-theme_override_constants/scrollbar_h_separation = 4
-horizontal_scroll_mode = 0
-vertical_scroll_mode = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/ScrollContainer" unique_id=146078681]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="developmentitemMarginContainer" parent="MarginContainer/ScrollContainer/VBoxContainer" unique_id=399311976 instance=ExtResource("1_lyceo")]
-layout_mode = 2
-
-[node name="developmentitemMarginContainer2" parent="MarginContainer/ScrollContainer/VBoxContainer" unique_id=1355179699 instance=ExtResource("1_lyceo")]
-layout_mode = 2
-
-[node name="developmentitemMarginContainer3" parent="MarginContainer/ScrollContainer/VBoxContainer" unique_id=2102706275 instance=ExtResource("1_lyceo")]
-layout_mode = 2
-
-[node name="developmentitemMarginContainer4" parent="MarginContainer/ScrollContainer/VBoxContainer" unique_id=22392776 instance=ExtResource("1_lyceo")]
-layout_mode = 2
-
-[node name="scrollmarginwindow" type="VBoxContainer" parent="MarginContainer" unique_id=525058897]
-layout_mode = 2
-mouse_filter = 2
-theme_override_constants/separation = 100
-
-[node name="Label" type="Label" parent="MarginContainer/scrollmarginwindow" unique_id=51669553]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="Label2" type="Label" parent="MarginContainer/scrollmarginwindow" unique_id=1535379281]
+[node name="researchManager" parent="." unique_id=615717275 instance=ExtResource("3_2fsw4")]
 layout_mode = 2
 
 [connection signal="timeout" from="waitingHBoxContainer/waiting_timer" to="." method="_on_waiting_timer_timeout"]
 [connection signal="pressed" from="pillage/pillage_button" to="." method="_on_pillage_button_pressed"]
 [connection signal="timeout" from="pillage/pillage_timer" to="." method="_on_pillage_timer_timeout"]
 
-[editable path="MarginContainer/ScrollContainer/VBoxContainer/developmentitemMarginContainer"]
-[editable path="MarginContainer/ScrollContainer/VBoxContainer/developmentitemMarginContainer2"]
-[editable path="MarginContainer/ScrollContainer/VBoxContainer/developmentitemMarginContainer3"]
-[editable path="MarginContainer/ScrollContainer/VBoxContainer/developmentitemMarginContainer4"]
+[editable path="researchManager"]
+[editable path="researchManager/ScrollContainer/VBoxContainer/better_hunting"]
+[editable path="researchManager/ScrollContainer/VBoxContainer/better_horses"]
+[editable path="researchManager/ScrollContainer/VBoxContainer/better_pillaging"]
+[editable path="researchManager/ScrollContainer/VBoxContainer/better_husbandry"]
+[editable path="researchManager/ScrollContainer/VBoxContainer/better_childrearing"]
+[editable path="researchManager/ScrollContainer/VBoxContainer/auto_migrate"]

@@ -43,10 +43,10 @@ func _on_pillage_timer_timeout() -> void:
 	pillagers_waiting_ui.visible = true
 	waiting_ui.visible = false
 	$waitingHBoxContainer/waiting_timer.stop()
-	gamedata.wealth_count += randf_range(gamedata.minimum_pillage_earning, ((gamedata.minimum_pillage_earning * gamedata.sent_pillagers) * gamedata.pillaging_worker_rate))
+	#gamedata.wealth_count += randf_range(gamedata.minimum_pillage_earning, ((gamedata.minimum_pillage_earning * gamedata.sent_pillagers) * gamedata.pillaging_worker_rate))
+	gamedata.wealth_count += pow(1.1, gamedata.pillaging_worker_rate) * (gamedata.minimum_pillage_earning * gamedata.sent_pillagers)
 
 func _on_waiting_timer_timeout() -> void:
-	print("timeout")
 	$waitingHBoxContainer/waiting_timer.start()
 	if waiting_count < 3:
 		waiting_array[waiting_count].visible = true

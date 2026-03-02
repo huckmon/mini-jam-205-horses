@@ -1,0 +1,101 @@
+[gd_scene format=3 uid="uid://bfcrjh7wxo6x3"]
+
+[ext_resource type="Script" uid="uid://cvj08wt7pyisa" path="res://Scripts/research_manager.gd" id="1_5x883"]
+[ext_resource type="PackedScene" uid="uid://cge77bbibwdhv" path="res://Scenes/prefab/developmentitem_margin_container.tscn" id="2_34ao4"]
+[ext_resource type="Resource" uid="uid://ox7rhenr6wdv" path="res://Resources/gamedata.tres" id="2_ee76a"]
+
+[node name="researchManager" type="MarginContainer" unique_id=615717275]
+theme_override_constants/margin_left = 4
+script = ExtResource("1_5x883")
+gamedata = ExtResource("2_ee76a")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=1689900073]
+layout_mode = 2
+theme_override_constants/scrollbar_h_separation = 4
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer" unique_id=1856294058]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="better_hunting" parent="ScrollContainer/VBoxContainer" unique_id=399311976 instance=ExtResource("2_34ao4")]
+layout_mode = 2
+
+[node name="title" parent="ScrollContainer/VBoxContainer/better_hunting/VBoxContainer/HBoxContainer" parent_id_path=PackedInt32Array(399311976, 225440567) index="0" unique_id=1204917989]
+text = "[b]Improved Hunting[/b]"
+
+[node name="description" parent="ScrollContainer/VBoxContainer/better_hunting/VBoxContainer" parent_id_path=PackedInt32Array(399311976, 1345289069) index="1" unique_id=260711059]
+text = " Increase the amount of food produced by Hunters "
+
+[node name="better_horses" parent="ScrollContainer/VBoxContainer" unique_id=824779390 instance=ExtResource("2_34ao4")]
+layout_mode = 2
+
+[node name="title" parent="ScrollContainer/VBoxContainer/better_horses/VBoxContainer/HBoxContainer" parent_id_path=PackedInt32Array(824779390, 225440567) index="0" unique_id=1204917989]
+text = "[b]Improved Horse Riding[/b]"
+
+[node name="description" parent="ScrollContainer/VBoxContainer/better_horses/VBoxContainer" parent_id_path=PackedInt32Array(824779390, 1345289069) index="1" unique_id=260711059]
+text = " Horses traverse the distance between areas faster "
+
+[node name="better_pillaging" parent="ScrollContainer/VBoxContainer" unique_id=692943294 instance=ExtResource("2_34ao4")]
+layout_mode = 2
+
+[node name="title" parent="ScrollContainer/VBoxContainer/better_pillaging/VBoxContainer/HBoxContainer" parent_id_path=PackedInt32Array(692943294, 225440567) index="0" unique_id=1204917989]
+text = "[b]Improved Pillaging[/b]"
+
+[node name="description" parent="ScrollContainer/VBoxContainer/better_pillaging/VBoxContainer" parent_id_path=PackedInt32Array(692943294, 1345289069) index="1" unique_id=260711059]
+text = "Pillagers bring back more wealth on pillages"
+
+[node name="better_husbandry" parent="ScrollContainer/VBoxContainer" unique_id=1122454970 instance=ExtResource("2_34ao4")]
+layout_mode = 2
+
+[node name="title" parent="ScrollContainer/VBoxContainer/better_husbandry/VBoxContainer/HBoxContainer" parent_id_path=PackedInt32Array(1122454970, 225440567) index="0" unique_id=1204917989]
+text = "[b]Improved Husbandry[/b]"
+
+[node name="description" parent="ScrollContainer/VBoxContainer/better_husbandry/VBoxContainer" parent_id_path=PackedInt32Array(1122454970, 1345289069) index="1" unique_id=260711059]
+text = "Improve the tribe's ability to raise new horses"
+
+[node name="better_childrearing" parent="ScrollContainer/VBoxContainer" unique_id=2008475589 instance=ExtResource("2_34ao4")]
+layout_mode = 2
+
+[node name="title" parent="ScrollContainer/VBoxContainer/better_childrearing/VBoxContainer/HBoxContainer" parent_id_path=PackedInt32Array(2008475589, 225440567) index="0" unique_id=1204917989]
+text = "[b]Improved Childrearing[/b]"
+
+[node name="description" parent="ScrollContainer/VBoxContainer/better_childrearing/VBoxContainer" parent_id_path=PackedInt32Array(2008475589, 1345289069) index="1" unique_id=260711059]
+text = "Improve the tribe's ability to raise new tribe members"
+
+[node name="auto_migrate" parent="ScrollContainer/VBoxContainer" unique_id=339971888 instance=ExtResource("2_34ao4")]
+layout_mode = 2
+
+[node name="title" parent="ScrollContainer/VBoxContainer/auto_migrate/VBoxContainer/HBoxContainer" parent_id_path=PackedInt32Array(339971888, 225440567) index="0" unique_id=1204917989]
+text = "[b]Auto-Migrate[/b]"
+
+[node name="description" parent="ScrollContainer/VBoxContainer/auto_migrate/VBoxContainer" parent_id_path=PackedInt32Array(339971888, 1345289069) index="1" unique_id=260711059]
+text = "Migrate without manual imput when the local food is depleated"
+
+[node name="scrollmarginwindow" type="VBoxContainer" parent="." unique_id=405468289]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 100
+
+[node name="Label" type="Label" parent="scrollmarginwindow" unique_id=2075189222]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label2" type="Label" parent="scrollmarginwindow" unique_id=278110408]
+layout_mode = 2
+
+[connection signal="pressed" from="ScrollContainer/VBoxContainer/better_hunting/Button" to="." method="_better_hunting_on_button_pressed"]
+[connection signal="pressed" from="ScrollContainer/VBoxContainer/better_horses/Button" to="." method="_better_horses_on_button_pressed"]
+[connection signal="pressed" from="ScrollContainer/VBoxContainer/better_pillaging/Button" to="." method="_better_pillaging_on_button_pressed"]
+[connection signal="pressed" from="ScrollContainer/VBoxContainer/better_husbandry/Button" to="." method="_better_husbandry_on_button_pressed"]
+[connection signal="pressed" from="ScrollContainer/VBoxContainer/better_childrearing/Button" to="." method="_better_childrearing_on_button_pressed"]
+[connection signal="pressed" from="ScrollContainer/VBoxContainer/auto_migrate/Button" to="." method="_auto_migrate_on_button_pressed"]
+
+[editable path="ScrollContainer/VBoxContainer/better_hunting"]
+[editable path="ScrollContainer/VBoxContainer/better_horses"]
+[editable path="ScrollContainer/VBoxContainer/better_pillaging"]
+[editable path="ScrollContainer/VBoxContainer/better_husbandry"]
+[editable path="ScrollContainer/VBoxContainer/better_childrearing"]
+[editable path="ScrollContainer/VBoxContainer/auto_migrate"]

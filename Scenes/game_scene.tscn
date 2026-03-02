@@ -32,13 +32,13 @@ layout_mode = 2
 [node name="col_4_VBoxContainer" parent="HBoxContainer" unique_id=822112598 instance=ExtResource("6_rgj8m")]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer" unique_id=1121866682]
+[node name="game_over_Container" type="VBoxContainer" parent="HBoxContainer" unique_id=1121866682]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer" unique_id=1374726393]
+[node name="Label" type="Label" parent="HBoxContainer/game_over_Container" unique_id=1374726393]
 layout_mode = 2
 
-[node name="info_button" type="Button" parent="HBoxContainer/VBoxContainer/Label" unique_id=369843331]
+[node name="info_button" type="Button" parent="HBoxContainer/game_over_Container/Label" unique_id=369843331]
 layout_mode = 0
 offset_right = 8.0
 offset_bottom = 8.0
@@ -52,14 +52,24 @@ z_index = 1
 [connection signal="timeout" from="globalGameTick" to="HBoxContainer/col_1_VBoxContainer" method="_on_global_game_tick_timeout"]
 [connection signal="timeout" from="globalGameTick" to="HBoxContainer/col_2_VBoxContainer" method="_on_global_game_tick_timeout"]
 [connection signal="timeout" from="globalGameTick" to="HBoxContainer/col_3_VBoxContainer" method="_on_global_game_tick_timeout"]
+[connection signal="timeout" from="globalGameTick" to="HBoxContainer/col_3_VBoxContainer/researchManager" method="_on_global_game_tick_timeout"]
 [connection signal="first_time_10_horses" from="HBoxContainer/col_1_VBoxContainer" to="." method="_on_col_1_v_box_container_first_time_10_horses"]
 [connection signal="first_time_10_horses" from="HBoxContainer/col_1_VBoxContainer" to="HBoxContainer/col_2_VBoxContainer" method="_on_col_1_v_box_container_first_time_10_horses"]
-[connection signal="pressed" from="HBoxContainer/VBoxContainer/Label/info_button" to="." method="_on_info_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/game_over_Container/Label/info_button" to="." method="_on_info_button_pressed"]
 
 [editable path="HBoxContainer/col_1_VBoxContainer"]
 [editable path="HBoxContainer/col_2_VBoxContainer"]
-[editable path="HBoxContainer/col_2_VBoxContainer/HusbandryJobVBoxContainer"]
+[editable path="HBoxContainer/col_2_VBoxContainer/husbandryJobVBoxContainer"]
 [editable path="HBoxContainer/col_2_VBoxContainer/childrearingJobVBoxContainer"]
 [editable path="HBoxContainer/col_2_VBoxContainer/huntingJobVBoxContainer"]
 [editable path="HBoxContainer/col_2_VBoxContainer/pillagingJobVBoxContainer"]
 [editable path="HBoxContainer/col_2_VBoxContainer/cullingJobVBoxContainer"]
+[editable path="HBoxContainer/col_3_VBoxContainer"]
+[editable path="HBoxContainer/col_3_VBoxContainer/researchManager"]
+[editable path="HBoxContainer/col_3_VBoxContainer/researchManager/ScrollContainer/VBoxContainer/better_hunting"]
+[editable path="HBoxContainer/col_3_VBoxContainer/researchManager/ScrollContainer/VBoxContainer/better_horses"]
+[editable path="HBoxContainer/col_3_VBoxContainer/researchManager/ScrollContainer/VBoxContainer/better_pillaging"]
+[editable path="HBoxContainer/col_3_VBoxContainer/researchManager/ScrollContainer/VBoxContainer/better_husbandry"]
+[editable path="HBoxContainer/col_3_VBoxContainer/researchManager/ScrollContainer/VBoxContainer/better_childrearing"]
+[editable path="HBoxContainer/col_3_VBoxContainer/researchManager/ScrollContainer/VBoxContainer/auto_migrate"]
+[editable path="HBoxContainer/col_4_VBoxContainer"]

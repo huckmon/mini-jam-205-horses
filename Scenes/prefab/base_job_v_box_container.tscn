@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cvyx0lbujqmp2"]
 
-[node name="baseJobVBoxContainer" type="VBoxContainer" unique_id=1272703202]
+[node name="baseJobVBoxContainer" type="VBoxContainer" unique_id=1272703202 groups=["hunting"]]
 offset_right = 40.0
 offset_bottom = 40.0
 
@@ -11,6 +11,10 @@ text = "Job"
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1663086678]
 layout_mode = 2
 theme_override_constants/separation = 1
+
+[node name="neg_all" type="Button" parent="HBoxContainer" unique_id=992877291]
+layout_mode = 2
+text = "-all"
 
 [node name="neg_10" type="Button" parent="HBoxContainer" unique_id=837668470]
 layout_mode = 2
@@ -31,3 +35,14 @@ text = "+1"
 [node name="pos_10" type="Button" parent="HBoxContainer" unique_id=19699067]
 layout_mode = 2
 text = "+10"
+
+[node name="pos_all" type="Button" parent="HBoxContainer" unique_id=738146988]
+layout_mode = 2
+text = "+all"
+
+[connection signal="pressed" from="HBoxContainer/neg_all" to="." method="_on_neg_all_pressed"]
+[connection signal="pressed" from="HBoxContainer/neg_10" to="." method="_on_neg_10_pressed"]
+[connection signal="pressed" from="HBoxContainer/neg_1" to="." method="_on_neg_1_pressed"]
+[connection signal="pressed" from="HBoxContainer/pos_1" to="." method="_on_pos_1_pressed"]
+[connection signal="pressed" from="HBoxContainer/pos_10" to="." method="_on_pos_10_pressed"]
+[connection signal="pressed" from="HBoxContainer/pos_all" to="." method="_on_pos_all_pressed"]
